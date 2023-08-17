@@ -1,0 +1,8 @@
+modelo <- rpart(
+  formula = clase_ternaria ~ .,
+  data = dtrain,
+  cp = -0.03,      
+  minsplit = 20,   
+  minbucket = 10,  
+  maxdepth = 6     
+)

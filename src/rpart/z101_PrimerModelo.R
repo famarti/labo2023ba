@@ -12,6 +12,12 @@ setwd("/home/famarti/Documents/Austral/Labo1/labo2023ba/")
 # cargo el dataset
 dataset <- fread("./datasets/dataset_pequeno.csv")
 
+# Facu
+colnames(dataset)
+summary(dataset$foto_mes)
+dim(dataset)
+summary(dataset$clase_ternaria)
+
 dtrain <- dataset[foto_mes == 202107] # defino donde voy a entrenar
 dapply <- dataset[foto_mes == 202109] # defino donde voy a aplicar el modelo
 
@@ -21,12 +27,11 @@ modelo <- rpart(
         formula = "clase_ternaria ~ .",
         data = dtrain, # los datos donde voy a entrenar
         xval = 0,
-        cp = -0.3, # esto significa no limitar la complejidad de los splits
-        minsplit = 0, # minima cantidad de registros para que se haga el split
-        minbucket = 1, # tamaño minimo de una hoja
-        maxdepth = 3
+        cp = -0.03, # esto significa no limitar la complejidad de los splits
+        minsplit = 20, # minima cantidad de registros para que se haga el split
+        minbucket = 10, # tamaño minimo de una hoja
+        maxdepth = 6
 ) # profundidad maxima del arbol
-
 
 # grafico el arbol
 prp(modelo,
@@ -52,6 +57,7 @@ dapply[, prob_baja2 := prediccion[, "BAJA+2"]]
 # solo le envio estimulo a los registros
 #  con probabilidad de BAJA+2 mayor  a  1/40
 dapply[, Predicted := as.numeric(prob_baja2 > 1 / 40)]
+
 
 # genero el archivo para Kaggle
 # primero creo la carpeta donde va el experimento
