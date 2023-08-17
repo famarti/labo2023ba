@@ -5,7 +5,7 @@ require("data.table")
 require("rpart")
 
 PARAM <- list()
-PARAM$semilla <- 102191
+PARAM$semilla <- 123457
 
 #------------------------------------------------------------------------------
 # particionar agrega una columna llamada fold a un dataset
@@ -33,7 +33,7 @@ particionar <- function(
 
 # Aqui se debe poner la carpeta de la computadora local
 # Establezco el Working Directory
-setwd("X:\\gdrive\\austral2023r\\")
+setwd("/home/famarti/Documents/Austral/Labo1/labo2023ba/")
 
 # cargo los datos
 dataset <- fread("./datasets/dataset_pequeno.csv")
@@ -43,8 +43,10 @@ dataset <- dataset[clase_ternaria != ""]
 
 # particiono estratificadamente el dataset
 # Cambiar por la primer semilla de cada uno !
-particionar(dataset, division = c(7, 3), 
-  agrupa = "clase_ternaria", seed = PARAM$semilla) # aqui se usa SU semilla
+particionar(dataset,
+  division = c(7, 3),
+  agrupa = "clase_ternaria", seed = PARAM$semilla
+) # aqui se usa SU semilla
 
 
 param_basicos <- list(
