@@ -33,7 +33,7 @@ particionar <- function(
 
 # Aqui se debe poner la carpeta de la computadora local
 # Establezco el Working Directory
-setwd("X:\\gdrive\\austral2023r\\")
+setwd("~/buckets/b1/")
 
 # cargo los datos
 dataset <- fread("./datasets/dataset_pequeno.csv")
