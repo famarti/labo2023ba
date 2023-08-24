@@ -110,6 +110,8 @@ cat(
     sep = "",
     "max_depth", "\t",
     "min_split", "\t",
+    "cp", "\t",
+    "minbucket", "\t",
     "ganancia_promedio", "\n"
 )
 
