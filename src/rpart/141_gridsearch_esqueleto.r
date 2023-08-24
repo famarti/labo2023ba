@@ -1,7 +1,3 @@
-# esqueleto de grid search
-# se espera que los alumnos completen lo que falta
-#   para recorrer TODOS cuatro los hiperparametros
-
 rm(list = ls()) # Borro todos los objetos
 gc() # Garbage Collection
 
@@ -120,29 +116,30 @@ cat(
 
 # itero por los loops anidados para cada hiperparametro
 
-for (vmax_depth in c(4, 6, 8, 10, 12, 14)) {
-    for (vmin_split in c(1000, 800, 600, 400, 200, 100, 50, 20, 10)) {
-        # notar como se agrega
+for (vmax_depth in c(3, 5, 7, 9, 11, 13)) {
+    for (vmin_split in c(1000, 850, 650, 450, 250, 150, 55, 25, 15)) {
+        for (vcp in seq(-1, -0.1, by = 0.1)) {
+            for (vmin_bucket in c(2, 3, 4, 5)) { # Agrega valores de minbucket
+                param_basicos <- list(
+                    "cp" = vcp,
+                    "minsplit" = vmin_split,
+                    "minbucket" = vmin_bucket,
+                    "maxdepth" = vmax_depth
+                )
 
-        # vminsplit  minima cantidad de registros en un nodo para hacer el split
-        param_basicos <- list(
-            "cp" = -0.5, # complejidad minima
-            "minsplit" = vmin_split,
-            "minbucket" = 5, # minima cantidad de registros en una hoja
-            "maxdepth" = vmax_depth
-        ) # profundidad máxima del arbol
+                ganancia_promedio <- ArbolesMontecarlo(ksemillas, param_basicos)
 
-        # Un solo llamado, con la semilla 17
-        ganancia_promedio <- ArbolesMontecarlo(ksemillas, param_basicos)
-
-        # escribo los resultados al archivo de salida
-        cat(
-            file = archivo_salida,
-            append = TRUE,
-            sep = "",
-            vmax_depth, "\t",
-            vmin_split, "\t",
-            ganancia_promedio, "\n"
-        )
+                cat(
+                    file = archivo_salida,
+                    append = TRUE,
+                    sep = "",
+                    vmax_depth, "\t",
+                    vmin_split, "\t",
+                    vcp, "\t",
+                    vmin_bucket, "\t",
+                    ganancia_promedio, "\n"
+                )
+            }
+        }
     }
 }
