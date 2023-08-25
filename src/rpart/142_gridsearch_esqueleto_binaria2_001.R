@@ -92,11 +92,11 @@ setwd("~/buckets/b1/") # Establezco el Working Directory
 dataset <- fread("./datasets/dataset_pequeno.csv")
 
 # trabajo solo con los datos con clase, es decir 202107
-#dataset <- dataset[clase_ternaria != ""]
+dataset <- dataset[clase_ternaria != ""]
 
 # Creamos la clase binaria1
 dataset[, clase_binaria1 := ifelse(clase_ternaria == "BAJA+2", "pos", "neg")]
-dataset <- dataset[clase_binaria1 != ""]
+#dataset <- dataset[clase_binaria1 != ""]
 
 # genero el archivo para Kaggle
 # creo la carpeta donde va el experimento
@@ -106,7 +106,7 @@ dataset <- dataset[clase_binaria1 != ""]
 #archivo_salida <- "./exp/HT2020/gridsearch.txt"
 dir.create("/home/martinezfacundo94/gridsearch/exp/", showWarnings = FALSE)
 dir.create("/home/martinezfacundo94/gridsearch/exp/HT2020/", showWarnings = FALSE)
-archivo_salida <- "/home/martinezfacundo94/gridsearch/exp//HT2020/gridsearchbinario_001.txt"
+archivo_salida <- "/home/martinezfacundo94/gridsearch/exp//HT2020/gridsearchbinario_002.txt"
 
 # Escribo los titulos al archivo donde van a quedar los resultados
 # atencion que si ya existe el archivo, esta instruccion LO SOBREESCRIBE,
