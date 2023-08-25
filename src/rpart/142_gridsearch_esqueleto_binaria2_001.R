@@ -96,6 +96,7 @@ dataset <- dataset[clase_ternaria != ""]
 
 # Creamos la clase binaria1
 dataset[, clase_binaria1 := ifelse(clase_ternaria == "BAJA+2", "pos", "neg")]
+dataset$clase_ternaria = NULL
 #dataset <- dataset[clase_binaria1 != ""]
 
 # genero el archivo para Kaggle
@@ -106,7 +107,7 @@ dataset[, clase_binaria1 := ifelse(clase_ternaria == "BAJA+2", "pos", "neg")]
 #archivo_salida <- "./exp/HT2020/gridsearch.txt"
 dir.create("/home/martinezfacundo94/gridsearch/exp/", showWarnings = FALSE)
 dir.create("/home/martinezfacundo94/gridsearch/exp/HT2020/", showWarnings = FALSE)
-archivo_salida <- "/home/martinezfacundo94/gridsearch/exp//HT2020/gridsearchbinario_002.txt"
+archivo_salida <- "/home/martinezfacundo94/gridsearch/exp//HT2020/gridsearchbinario_003.txt"
 
 # Escribo los titulos al archivo donde van a quedar los resultados
 # atencion que si ya existe el archivo, esta instruccion LO SOBREESCRIBE,
