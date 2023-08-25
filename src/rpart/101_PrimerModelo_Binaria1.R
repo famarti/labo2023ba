@@ -25,9 +25,9 @@ modelo <- rpart(
     data = dtrain, # los datos donde voy a entrenar
     xval = 0,
     cp = -1, # esto significa no limitar la complejidad de los splits
-    minsplit = 850, # minima cantidad de registros para que se haga el split
-    minbucket = 5, # tamaño minimo de una hoja
-    maxdepth = 11
+    minsplit = 875, # minima cantidad de registros para que se haga el split
+    minbucket = 50, # tamaño minimo de una hoja
+    maxdepth = 7
 ) # profundidad maxima del arbol
 
 
@@ -50,7 +50,7 @@ prediccion <- predict(
 # cada columna es el vector de probabilidades
 
 # agrego a dapply una columna nueva que es la probabilidad de BAJA+2
-dapply[, prob_baja2 := prediccion[, "BAJA+2"]]
+dapply[, prob_baja2 := prediccion[, "pos"]]
 
 # solo le envio estimulo a los registros
 #  con probabilidad de BAJA+2 mayor  a  1/40
