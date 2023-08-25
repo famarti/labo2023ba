@@ -127,8 +127,8 @@ cat(
 
 for (vmax_depth in c(3, 5, 7, 9, 11, 13)) {
     for (vmin_split in c(1000, 875, 675, 475)) {
-        for (vcp in seq(-1, -0.7, -0.5, -0.3)) {
-            for (vmin_bucket in c(10, 50, 100, 150, 200)) { # Agrega valores de minbucket
+        for (vcp in c(-1, -0.7, -0.5, -0.3)) {
+            for (vmin_bucket in c(10, 50, 100, 150, 200)) {
                 param_basicos <- list(
                     "cp" = vcp,
                     "minsplit" = vmin_split,
