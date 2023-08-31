@@ -9,9 +9,6 @@ gc() # Garbage Collection
 require("data.table")
 require("rpart")
 
-config_table <- fread("./datasets/mis_arboles.csv")
-config_table$experimento <- seq(3210, length.out = nrow(config_table))
-
 # parmatros experimento
 PARAM <- list()
 
@@ -30,6 +27,9 @@ PARAM$num_trees_max <- 500
 # Aqui comienza el programa
 
 setwd("~/buckets/b1/") # Establezco el Working Directory
+
+config_table <- fread("./datasets/mis_arboles.csv")
+config_table$experimento <- seq(3210, length.out = nrow(config_table))
 
 # Definir carpeta base del experimento
 base_experimento <- "./exp/"
