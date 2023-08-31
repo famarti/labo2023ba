@@ -123,7 +123,7 @@ for (i in 1:nrow(config_table)) { # config_table es la tabla que proporcionaste
             cat(arbolito, " ")
 
             # Volver al directorio base del experimento
-            setwd(base_experimento)
+            setwd(carpeta_experimento)
         }
     }
 }
