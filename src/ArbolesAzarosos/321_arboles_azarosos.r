@@ -25,14 +25,15 @@ PARAM$num_trees_max <- 500
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 # Aqui comienza el programa
-
-setwd("~/buckets/b1/") # Establezco el Working Directory
+homedir <- "~/buckets/b1/"
+local_homedir <- "/home/martinezfacundo94/local_buckets/b1/"
+setwd(homedir) # Establezco el Working Directory
 
 config_table <- fread("./datasets/mis_arboles.csv")
 config_table$experimento <- seq(3210, length.out = nrow(config_table))
 
 # Definir carpeta base del experimento
-base_experimento <- "./exp/"
+base_experimento <- paste0(local_homedir, "exp/")
 
 # cargo los datos
 dataset <- fread("./datasets/dataset_pequeno.csv")
