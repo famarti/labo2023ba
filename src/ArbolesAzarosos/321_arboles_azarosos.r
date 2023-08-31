@@ -56,7 +56,7 @@ for (i in 1:nrow(config_table)) { # config_table es la tabla que proporcionaste
 
 
     # que tamanos de ensemble grabo a disco, pero siempre debo generar los 500
-    grabar <- config_table$xval_folds[i] 
+    grabar <- c(config_table$xval_folds[i])
 
 
     # defino los dataset de entrenamiento y aplicacion
