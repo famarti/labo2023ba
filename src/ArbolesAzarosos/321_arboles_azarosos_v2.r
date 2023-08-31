@@ -30,7 +30,7 @@ local_homedir <- "/home/martinezfacundo94/local_buckets/b1/"
 setwd(homedir) # Establezco el Working Directory
 
 config_table <- fread("./datasets/mis_arboles_miti2.csv")
-config_table$experimento <- seq(3210, length.out = nrow(config_table))
+config_table$experimento <- seq(4210, length.out = nrow(config_table))
 
 # Definir carpeta base del experimento
 base_experimento <- paste0(local_homedir, "exp/")
