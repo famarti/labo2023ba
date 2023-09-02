@@ -11,7 +11,7 @@ require("rpart")
 
 # parmatros experimento
 PARAM <- list()
-PARAM$experimento <- 0209
+PARAM$experimento <- 2091
 
 # Establezco la semilla aleatoria, cambiar por SU primer semilla
 PARAM$semilla <- 111119
@@ -26,7 +26,7 @@ PARAM$rpart_param <- list(
 
 # parametros  arbol
 # entreno cada arbol con solo 50% de las variables variables
-PARAM$feature_fraction <- 0.10
+PARAM$feature_fraction <- 0.5
 # voy a generar 500 arboles, a mas arboles mas tiempo de proceso y MEJOR MODELO
 #  pero ganancias marginales
 PARAM$num_trees_max <- 500
