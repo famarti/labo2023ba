@@ -14,7 +14,7 @@ PARAM <- list()
 PARAM$experimento <- 0209
 
 # Establezco la semilla aleatoria, cambiar por SU primer semilla
-PARAM$semilla <- 123457
+PARAM$semilla <- 111119
 
 # parameetros rpart
 PARAM$rpart_param <- list(
