@@ -42,7 +42,7 @@ PARAM$input$training <- c(202107) # los meses en los que vamos a entrenar
 
 # un undersampling de 0.1  toma solo el 10% de los CONTINUA
 PARAM$trainingstrategy$undersampling <- 1.0
-PARAM$trainingstrategy$semilla_azar <- 102191 # Aqui poner su  primer  semilla
+PARAM$trainingstrategy$semilla_azar <- 111119 # Aqui poner su  primer  semilla
 
 PARAM$hyperparametertuning$iteraciones <- 100
 PARAM$hyperparametertuning$xval_folds <- 5
@@ -50,7 +50,7 @@ PARAM$hyperparametertuning$POS_ganancia <- 117000
 PARAM$hyperparametertuning$NEG_ganancia <- -3000
 
 # Aqui poner su segunda semilla
-PARAM$hyperparametertuning$semilla_azar <- 111119
+PARAM$hyperparametertuning$semilla_azar <- 333337
 #------------------------------------------------------------------------------
 
 # Aqui se cargan los bordes de los hiperparametros
