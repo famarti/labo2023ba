@@ -14,7 +14,7 @@ require("lightgbm")
 # defino los parametros de la corrida, en una lista, la variable global  PARAM
 #  muy pronto esto se leera desde un archivo formato .yaml
 PARAM <- list()
-PARAM$experimento <- "KA4240"
+PARAM$experimento <- "KA4240_opt"
 
 PARAM$input$dataset <- "./datasets/dataset_pequeno.csv"
 PARAM$input$training <- c(202107) # meses donde se entrena el modelo
@@ -22,11 +22,11 @@ PARAM$input$future <- c(202109) # meses donde se aplica el modelo
 
 PARAM$finalmodel$semilla <- 111119
 
-PARAM$finalmodel$num_iterations <- 559
-PARAM$finalmodel$learning_rate <- 0.0100746999
-PARAM$finalmodel$feature_fraction <- 0.5144127527
-PARAM$finalmodel$min_data_in_leaf <- 505
-PARAM$finalmodel$num_leaves <- 44
+PARAM$finalmodel$num_iterations <- 274
+PARAM$finalmodel$learning_rate <- 0.03239089169339
+PARAM$finalmodel$feature_fraction <- 0.831003610162972
+PARAM$finalmodel$min_data_in_leaf <- 30
+PARAM$finalmodel$num_leaves <- 621
 
 
 PARAM$finalmodel$max_bin <- 31
@@ -134,7 +134,7 @@ setorder(tb_entrega, -prob)
 # suba TODOS los archivos a Kaggle
 # espera a la siguiente clase sincronica en donde el tema sera explicado
 
-cortes <- seq(8000, 12000, by = 500)
+cortes <- seq(13000, 13606, by = 303)
 for (envios in cortes) {
     tb_entrega[, Predicted := 0L]
     tb_entrega[1:envios, Predicted := 1L]
