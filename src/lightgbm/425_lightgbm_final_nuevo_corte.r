@@ -14,7 +14,7 @@ require("lightgbm")
 # defino los parametros de la corrida, en una lista, la variable global  PARAM
 #  muy pronto esto se leera desde un archivo formato .yaml
 PARAM <- list()
-PARAM$experimento <- "KA4240_opt"
+PARAM$experimento <- "KA4241_opt"
 
 PARAM$input$dataset <- "./datasets/dataset_pequeno.csv"
 PARAM$input$training <- c(202107) # meses donde se entrena el modelo
@@ -126,6 +126,7 @@ fwrite(tb_entrega,
     file = "prediccion.txt",
     sep = "\t"
 )
+
 
 # ordeno por probabilidad descendente
 setorder(tb_entrega, -prob)
