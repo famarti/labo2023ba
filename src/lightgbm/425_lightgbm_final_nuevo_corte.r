@@ -105,25 +105,23 @@ fwrite(tb_importancia,
 #--------------------------------------
 
 
-# aplico el modelo a los datos sin clase
+# Aplico el modelo a los datos sin clase
 dapply <- dataset[foto_mes == PARAM$input$future]
 
-# aplico el modelo a los datos nuevos
+# Aplico el modelo a los datos nuevos
 prediccion <- predict(
     modelo,
     data.matrix(dapply[, campos_buenos, with = FALSE])
 )
 
-# genero la tabla de entrega
-# tb_entrega <- dapply[, list(numero_de_cliente, foto_mes)]
-# tb_entrega[, prob := prediccion]
-
 # Genero la tabla de entrega
 tb_entrega <- dapply[, list(numero_de_cliente, foto_mes)]
-tb_entrega[, Predicted := ifelse(prediccion >= 0.3, 1L, 0L)] # Cambio el umbral de corte a 0.3
+tb_entrega[, prob := prediccion] # Mantengo la columna 'prob'
 
+# Agrego la columna Predicted utilizando el umbral de corte en 0.3
+tb_entrega[, Predicted := ifelse(prob >= 0.3, 1L, 0L)]
 
-# grabo las probabilidad del modelo
+# Grabo las probabilidades del modelo
 fwrite(tb_entrega,
     file = "prediccion.txt",
     sep = "\t"
